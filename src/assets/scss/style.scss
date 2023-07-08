@@ -1,0 +1,59 @@
+#container{
+    margin:auto;
+    position: relative;
+    width: 731px;
+    height: 731px;
+}
+
+#body{
+    position:absolute;
+    width:731px;   /* width of actual image */
+    height:731px; /* height of actual image */
+    background-image: url("../img/body.png");
+    background-repeat: no-repeat;
+}
+
+#background {
+    bottom: 731px;
+    right: 731px;
+    position: absolute;
+}
+
+#hairs, #weapons, #clothes, #accessoriesA {
+    position:absolute;
+    width:731px;   /* width of actual image */
+    height:731px; /* height of actual image */
+}
+
+// update this map when new items or categories are added
+$items: ("hairs": 11, "weapons": 3, "clothes": 4, "accessoriesA": 7);
+
+@each $item, $total in $items {
+
+    @for $i from 1 through $total {
+        .#{$item}#{$i} {
+            background-image: url(../img/#{$item}/#{$item}#{$i}.png);
+        }
+    }
+}
+
+// Position "next" buttons
+
+@each $item, $total in $items {
+    #next#{$item}{
+        position:relative;
+        left:10px;
+        top: 10px;
+        margin-right: 30px;
+    }
+    
+}
+
+// Position "randomize" button
+
+#randomize{
+    position:absolute;
+    left:600px;
+    top:600px;
+    font-weight: bold;
+}
