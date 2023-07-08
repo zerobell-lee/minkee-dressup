@@ -17,10 +17,10 @@ const FileUploader = (props) => {
   const handleChange = (e) => {
     const fileUploaded = e.target.files[0];
     const fileReader = new FileReader();
-    fileReader.onload = () => {
+    fileReader.onload = async () => {
       const srcData = fileReader.result;
       console.log("base64:", srcData)
-      props.handleFile(srcData);
+      await props.handleFile(srcData);
     }
     fileReader.readAsDataURL(fileUploaded);
   };
@@ -55,7 +55,6 @@ function App() {
   });
 
   const [bgColor, setBgColor] = useState("#ffffff")
-  const [bgImg, setBgImg] = useState(null)
 
   const updateDressUp = (item, new_current) => {
     const chosenOnes = dressupState[item]
@@ -94,8 +93,7 @@ function App() {
   }
 
   const updateBgImg = (encodedImage) => {
-    setBgImg(encodedImage)
-    document.documentElement.style.setProperty('--makerBg', `url(${bgImg})`)
+    document.documentElement.style.setProperty('--makerBg', `url(${encodedImage})`)
   }
 
   return (
