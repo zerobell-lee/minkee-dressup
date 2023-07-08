@@ -1,6 +1,9 @@
 import './assets/scss/style.scss';
 import React, { useRef, useState } from 'react';
 import * as htmlToImage from 'html-to-image';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import 'react-tabs/style/react-tabs.css';
+import parts from './parts';
 
 function App() {
 
@@ -17,26 +20,16 @@ function App() {
 
   // ATM you need to manually add new items and update the total values per item 
   const [dressupState, setDressupState] = useState({
-    hairs: { current: 11, total: 12 },
-    clothes: { current: 6, total: 7 },
-    weapons: { current: 6, total: 7 },
-    accessoriesA: { current: 9, total: 10 },
+    hairs: 0,
+    clothes: 0,
+    weapons: 0,
+    accessoriesA: 0,
   });
-
-  function next(item) {
-    let next_num = dressupState[item].current + 1
-    // if next_num exceeds total, restart (set current to 0)
-    let new_current = next_num < dressupState[item].total ? next_num : 0
-    updateDressUp(item, new_current)
-  }
 
   function updateDressUp(item, new_current) {
     setDressupState({
       ...dressupState,
-      [item]: {
-        current: dressupState[item].current = new_current,
-        total: dressupState[item].total
-      }
+      [item]: new_current
     })
   }
 
@@ -47,19 +40,34 @@ function App() {
         <div id="background" ref={domElement}>
           <div id="body"></div>
           {Object.keys(dressupState).map((item) =>
-            <div id={item} className={item + (dressupState[item].current + 1)} key={item}></div>
+            <div id={item} className={item + (dressupState[item])} key={item}></div>
           )
           }
         </div>
 
-        <div id="controlPanel">
-          {Object.keys(dressupState).map((item) =>
-            <input type="button" value={"next " + item} key={item} id={"next" + item} onClick={() => next(item)} />
-          )
+        <Tabs>
+          <TabList>
+            {Object.keys(parts).map((item) =>
+              <Tab>{parts[item].label}</Tab>
+            )}
+          </TabList>
+
+          {
+            Object.keys(parts).map((item) =>
+              <TabPanel>
+                {
+                  <div className='partsTabPanel'>
+                    {
+                      parts[item].items.map((subItem) => <input type="button" value={subItem.text} id={item.label + subItem.pointingIndex} className="partsButton" onClick={() => updateDressUp(item, subItem.pointingIndex)} />)
+                    }
+                  </div>
+
+                }
+              </TabPanel>
+            )
           }
-        </div>
+        </Tabs>
         <input type="button" value="다운로드" id="capture" onClick={downloadImage} />
-
       </div>
     </div>
   );

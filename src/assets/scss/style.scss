@@ -13,6 +13,7 @@
     margin: auto;
     position: relative;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #body{
@@ -82,4 +83,16 @@ $items: ("hairs": 11, "weapons": 6, "clothes": 6, "accessoriesA": 9);
     font-size: large;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.partsButton {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.partsTabPanel {
+    padding: 15px;
 }
