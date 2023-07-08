@@ -4,6 +4,34 @@ import * as htmlToImage from 'html-to-image';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import parts from './parts';
+import { SketchPicker } from 'react-color'
+
+const FileUploader = (props) => {
+
+  const hiddenFileInput = useRef(null);
+
+  const handleClick = (e) => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = (e) => {
+    const fileUploaded = e.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      const srcData = fileReader.result;
+      console.log("base64:", srcData)
+      props.handleFile(srcData);
+    }
+    fileReader.readAsDataURL(fileUploaded);
+  };
+
+  return (
+    <>
+      <input type="button" value="업로드" onClick={handleClick}/>
+      <input type="file" style={{display:'none'}} onChange={handleChange} ref={hiddenFileInput}/>
+    </>
+  )
+};
 
 function App() {
 
@@ -25,6 +53,9 @@ function App() {
     weapons: [],
     accessoriesA: [],
   });
+
+  const [bgColor, setBgColor] = useState("#ffffff")
+  const [bgImg, setBgImg] = useState(null)
 
   const updateDressUp = (item, new_current) => {
     const chosenOnes = dressupState[item]
@@ -52,6 +83,21 @@ function App() {
     return "partsButton"
   }
 
+  const updateBgColor = (color) => {
+    setBgColor(color.hex)
+    document.documentElement.style.setProperty('--makerBg', color.hex);
+  }
+
+  const clearBgColor = () => {
+    setBgColor("#ffffff")
+    document.documentElement.style.setProperty('--makerBg', "none");
+  }
+
+  const updateBgImg = (encodedImage) => {
+    setBgImg(encodedImage)
+    document.documentElement.style.setProperty('--makerBg', `url(${bgImg})`)
+  }
+
   return (
     <div className="App">
       <div id="container">
@@ -73,6 +119,7 @@ function App() {
             {Object.keys(parts).map((item) =>
               <Tab>{parts[item].label}</Tab>
             )}
+            <Tab>배경</Tab>
           </TabList>
 
           {
@@ -89,6 +136,16 @@ function App() {
               </TabPanel>
             )
           }
+          <TabPanel>
+            <div id="bgControlPanel">
+              <SketchPicker color={bgColor} onChange={updateBgColor}/>
+              <div style={{display: 'grid'}}>
+                <input type="button" value="배경 없애기" onClick={() => clearBgColor()}/>
+                <FileUploader handleFile={updateBgImg}/>
+              </div>
+              
+            </div>
+          </TabPanel>
         </Tabs>
         <input type="button" value="다운로드" id="capture" onClick={downloadImage} />
       </div>
