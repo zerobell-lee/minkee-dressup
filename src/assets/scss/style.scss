@@ -5,6 +5,16 @@
     height: 731px;
 }
 
+#container h1 {
+    text-align: center;
+}
+
+#controlPanel {
+    margin: auto;
+    position: relative;
+    margin-top: 30px;
+}
+
 #body{
     position:absolute;
     width:731px;   /* width of actual image */
@@ -14,13 +24,19 @@
 }
 
 #background {
+    left: 0px;
+    top: 0px;
     bottom: 731px;
     right: 731px;
-    position: absolute;
+    width: 731px;
+    height: 731px;
+    position: relative;
 }
 
 #hairs, #weapons, #clothes, #accessoriesA {
     position:absolute;
+    left: 0px;
+    top: 0px;
     width:731px;   /* width of actual image */
     height:731px; /* height of actual image */
 }
@@ -42,9 +58,8 @@ $items: ("hairs": 11, "weapons": 3, "clothes": 4, "accessoriesA": 7);
 @each $item, $total in $items {
     #next#{$item}{
         position:relative;
-        left:10px;
-        top: 10px;
-        margin-right: 30px;
+        margin-left:10px;
+        margin-top: 10px;
     }
     
 }
