@@ -1,51 +1,75 @@
 const hairItems = [
     {
-      text: "파랑짱갈래",
-      pointingIndex: 1
+        text: "파랑짱갈래",
+        pointingIndex: 1
     },
     {
-      text: "빨강짱갈래",
-      pointingIndex: 2
+        text: "빨강짱갈래",
+        pointingIndex: 2
     },
     {
-      text: "초록짱갈래",
-      pointingIndex: 3
+        text: "초록짱갈래",
+        pointingIndex: 3
     },
     {
-      text: "노랑짱갈래",
-      pointingIndex: 4
+        text: "노랑짱갈래",
+        pointingIndex: 4
     },
     {
-      text: "파스텔짱갈래",
-      pointingIndex: 5
+        text: "파스텔짱갈래",
+        pointingIndex: 5
     },
     {
-      text: "까망짱갈래",
-      pointingIndex: 8
+        text: "솜사탕짱갈래",
+        pointingIndex: 13
     },
     {
-      text: "헤이하치",
-      pointingIndex: 6
+        text: "까망짱갈래",
+        pointingIndex: 8
     },
     {
-      text: "크리링",
-      pointingIndex: 7
+        text: "헤이하치",
+        pointingIndex: 6
     },
     {
-      text: "진홍색보브",
-      pointingIndex: 9
+        text: "크리링",
+        pointingIndex: 7
     },
     {
-      text: "파랑보브",
-      pointingIndex: 10
+        text: "진홍색보브",
+        pointingIndex: 9
     },
     {
-      text: "민트보브",
-      pointingIndex: 11
+        text: "파랑보브",
+        pointingIndex: 10
+    },
+    {
+        text: "민트보브",
+        pointingIndex: 11
+    },
+    {
+        text: "독도다연",
+        pointingIndex: 12
+    },
+    {
+        text: "폴 피닉스",
+        pointingIndex: 14
+    },
+    {
+        text: "기영이",
+        pointingIndex: 15
+    },
+    {
+        text: "파랑숏컷",
+        pointingIndex: 16
+    },
+    {
+        text: "빨강숏컷",
+        pointingIndex: 17
     }
-  ]
+]
 
-  const clotheItems = [
+const clotheItems = [
     {
         text: "흰드레스",
         pointingIndex: 4
@@ -69,10 +93,34 @@ const hairItems = [
     {
         text: "언더아머",
         pointingIndex: 6
+    },
+    {
+        text: "붉은악마",
+        pointingIndex: 7
+    },
+    {
+        text: "메이드복",
+        pointingIndex: 8
+    },
+    {
+        text: "죄수복",
+        pointingIndex: 9
+    },
+    {
+        text: "정장",
+        pointingIndex: 10
+    },
+    {
+        text: "생일축하합니다",
+        pointingIndex: 11
+    },
+    {
+        text: "레드 오프숄더",
+        pointingIndex: 12
     }
-  ]
+]
 
-  const weaponItems = [
+const weaponItems = [
     {
         text: "낫창",
         pointingIndex: 3
@@ -96,10 +144,14 @@ const hairItems = [
     {
         text: "완드",
         pointingIndex: 6
+    },
+    {
+        text: "스리라차",
+        pointingIndex: 7
     }
-  ]
+]
 
-  const accessoryAitems = [
+const accessoryAitems = [
     {
         text: "방탄모",
         pointingIndex: 1
@@ -135,26 +187,50 @@ const hairItems = [
     {
         text: "칼빵자국",
         pointingIndex: 9
+    },
+    {
+        text: "메이드복 프릴",
+        pointingIndex: 10
+    },
+    {
+        text: "베레모",
+        pointingIndex: 11
+    },
+    {
+        text: "사원증",
+        pointingIndex: 12
+    },
+    {
+        text: "브로치 목걸이",
+        pointingIndex: 13
+    },
+    {
+        text: "도유정 스티커",
+        pointingIndex: 14
+    },
+    {
+        text: "뿔",
+        pointingIndex: 15
     }
-  ]
+]
 
-  const parts = {
+const parts = {
     hairs: {
-      label: "머가리",
-      items: hairItems
+        label: "머가리",
+        items: hairItems
     },
     clothes: {
-      label: "옷",
-      items: clotheItems
+        label: "옷",
+        items: clotheItems
     },
     weapons: {
-      label: "무기",
-      items: weaponItems
+        label: "무기",
+        items: weaponItems
     },
     accessoriesA: {
-      label: "악세사리A",
-      items: accessoryAitems
+        label: "악세사리A",
+        items: accessoryAitems
     }
-  }
+}
 
-  export default parts
+export default parts
