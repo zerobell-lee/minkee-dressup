@@ -1,5 +1,5 @@
-#container{
-    margin:auto;
+#container {
+    margin: auto;
     position: relative;
     width: 731px;
     height: 731px;
@@ -16,10 +16,12 @@
     margin-bottom: 30px;
 }
 
-#body{
-    position:absolute;
-    width:731px;   /* width of actual image */
-    height:731px; /* height of actual image */
+#body {
+    position: absolute;
+    width: 731px;
+    /* width of actual image */
+    height: 731px;
+    /* height of actual image */
     background-image: url("../img/body.png");
     background-repeat: no-repeat;
 }
@@ -35,43 +37,37 @@
     background-color: white;
 }
 
-#hairs, #weapons, #clothes, #accessoriesA {
-    position:absolute;
-    left: 0px;
-    top: 0px;
-    width:731px;   /* width of actual image */
-    height:731px; /* height of actual image */
-}
-
 // update this map when new items or categories are added
-$items: ("hairs": 11, "weapons": 6, "clothes": 6, "accessoriesA": 9);
+$items: (
+    "hairs": 11,
+    "weapons": 6,
+    "clothes": 6,
+    "accessoriesA": 9
+);
 
-@each $item, $total in $items {
+@each $item,
+$total in $items {
 
     @for $i from 1 through $total {
         .#{$item}#{$i} {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 731px;
+            /* width of actual image */
+            height: 731px;
+            /* height of actual image */
             background-image: url(../img/#{$item}/#{$item}#{$i}.png);
         }
     }
 }
 
-// Position "next" buttons
-
-@each $item, $total in $items {
-    #next#{$item}{
-        position:relative;
-        margin-left:10px;
-        margin-top: 10px;
-    }
-    
-}
-
 // Position "randomize" button
 
-#randomize{
-    position:absolute;
-    left:600px;
-    top:600px;
+#randomize {
+    position: absolute;
+    left: 600px;
+    top: 600px;
     font-weight: bold;
 }
 
@@ -89,6 +85,15 @@ $items: ("hairs": 11, "weapons": 6, "clothes": 6, "accessoriesA": 9);
     margin-right: 10px;
     margin-bottom: 10px;
     background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.partsButtonSelected {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
     border-radius: 30px;
     padding: 10px;
 }

@@ -20,17 +20,36 @@ function App() {
 
   // ATM you need to manually add new items and update the total values per item 
   const [dressupState, setDressupState] = useState({
-    hairs: 0,
-    clothes: 0,
-    weapons: 0,
-    accessoriesA: 0,
+    hairs: [],
+    clothes: [],
+    weapons: [],
+    accessoriesA: [],
   });
 
-  function updateDressUp(item, new_current) {
+  const updateDressUp = (item, new_current) => {
+    const chosenOnes = dressupState[item]
+    let newChosenOnes = []
+    
+    console.log(new_current)
+    console.log(chosenOnes)
+
+    if (chosenOnes.indexOf(new_current) >= 0) {
+      newChosenOnes = chosenOnes.filter(e => e !== new_current)
+    } else {
+      newChosenOnes = [...chosenOnes, new_current]
+    }
+
     setDressupState({
       ...dressupState,
-      [item]: new_current
+      [item]: newChosenOnes
     })
+  }
+
+  const determinePartsButton = (item, index) => {
+    if (dressupState[item].indexOf(index) >= 0) {
+      return "partsButtonSelected"
+    }
+    return "partsButton"
   }
 
   return (
@@ -39,9 +58,13 @@ function App() {
         <h1>나만의 민킈를 만들어보자!!!</h1>
         <div id="background" ref={domElement}>
           <div id="body"></div>
-          {Object.keys(dressupState).map((item) =>
-            <div id={item} className={item + (dressupState[item])} key={item}></div>
-          )
+          {
+            
+            Object.keys(dressupState).map((item) => 
+              dressupState[item].map((chosenOne) =>
+                <div className={item + chosenOne} key={item + chosenOne}></div>
+              )
+            )
           }
         </div>
 
@@ -58,7 +81,7 @@ function App() {
                 {
                   <div className='partsTabPanel'>
                     {
-                      parts[item].items.map((subItem) => <input type="button" value={subItem.text} id={item.label + subItem.pointingIndex} className="partsButton" onClick={() => updateDressUp(item, subItem.pointingIndex)} />)
+                      parts[item].items.map((subItem) => <input type="button" value={subItem.text} id={item.label + subItem.pointingIndex} className={determinePartsButton(item, subItem.pointingIndex)} onClick={() => updateDressUp(item, subItem.pointingIndex)} />)
                     }
                   </div>
 

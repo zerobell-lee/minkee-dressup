@@ -1,9 +1,5 @@
 const hairItems = [
     {
-      text: "없음",
-      pointingIndex: 0
-    },
-    {
       text: "파랑짱갈래",
       pointingIndex: 1
     },
@@ -51,10 +47,6 @@ const hairItems = [
 
   const clotheItems = [
     {
-        text: "없음",
-        pointingIndex: 0
-    },
-    {
         text: "흰드레스",
         pointingIndex: 4
     },
@@ -82,10 +74,6 @@ const hairItems = [
 
   const weaponItems = [
     {
-        text: "없음",
-        pointingIndex: 0
-    },
-    {
         text: "낫창",
         pointingIndex: 3
     },
@@ -112,10 +100,6 @@ const hairItems = [
   ]
 
   const accessoryAitems = [
-    {
-        text: "없음",
-        pointingIndex: 0
-    },
     {
         text: "방탄모",
         pointingIndex: 1
