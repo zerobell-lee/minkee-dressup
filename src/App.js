@@ -28,13 +28,6 @@ function App() {
     })
   }
 
-  function randomize(){
-    // for each dressup item, generate a random integer and assign it to current 
-    Object.keys(dressupState).map((item) => 
-      updateDressUp(item, Math.floor(Math.random() * Math.floor(dressupState[item].total)))
-    )
-  }
-
   return (
     <div className="App">
       <h1>나만의 민킈를 만들어보자!!!</h1>
