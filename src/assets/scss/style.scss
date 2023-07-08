@@ -31,6 +31,7 @@
     width: 731px;
     height: 731px;
     position: relative;
+    background-color: white;
 }
 
 #hairs, #weapons, #clothes, #accessoriesA {
@@ -42,7 +43,7 @@
 }
 
 // update this map when new items or categories are added
-$items: ("hairs": 11, "weapons": 3, "clothes": 4, "accessoriesA": 7);
+$items: ("hairs": 11, "weapons": 6, "clothes": 6, "accessoriesA": 9);
 
 @each $item, $total in $items {
 
@@ -71,4 +72,14 @@ $items: ("hairs": 11, "weapons": 3, "clothes": 4, "accessoriesA": 7);
     left:600px;
     top:600px;
     font-weight: bold;
+}
+
+#capture {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

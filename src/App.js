@@ -18,9 +18,9 @@ function App() {
   // ATM you need to manually add new items and update the total values per item 
   const [dressupState, setDressupState] = useState({
     hairs: { current: 11, total: 12 },
-    clothes: { current: 4, total: 5 },
-    weapons: { current: 3, total: 4 },
-    accessoriesA: { current: 7, total: 8 },
+    clothes: { current: 6, total: 7 },
+    weapons: { current: 6, total: 7 },
+    accessoriesA: { current: 9, total: 10 },
   });
 
   function next(item) {
