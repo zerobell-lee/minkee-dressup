@@ -129,7 +129,7 @@ function App() {
 
           {
             Object.keys(parts).map((item) =>
-              <TabPanel style={{...parts[item].tabStyle}}>
+              <TabPanel style={{...parts[item].tabStyle, paddingBottom: "5%"}}>
                 {
                   <div className='partsTabPanel'>
                     {
