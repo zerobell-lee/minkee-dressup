@@ -5,8 +5,8 @@
 #container {
     margin: auto;
     position: relative;
-    width: 731px;
-    height: 731px;
+    max-width: 731px;
+    width: 100%;
 }
 
 #container h1 {
@@ -22,21 +22,20 @@
 
 #body {
     position: absolute;
-    width: 731px;
-    /* width of actual image */
-    height: 731px;
-    /* height of actual image */
+    max-width: 731px;
+    width: 100%;
+    aspect-ratio: 1/1;
     background-image: url("../img/body.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #background {
     left: 0px;
     top: 0px;
-    bottom: 731px;
-    right: 731px;
-    width: 731px;
-    height: 731px;
+    width: 100%;
+    max-width: 731px;
+    aspect-ratio: 1/1;
     position: relative;
     background: var(--makerBg);
     background-size: cover;
@@ -62,11 +61,11 @@ $total in $items {
             position: absolute;
             left: 0px;
             top: 0px;
-            width: 731px;
-            /* width of actual image */
-            height: 731px;
-            /* height of actual image */
+            width: 100%;
+            max-width: 731px;
+            aspect-ratio: 1/1;
             background-image: url(../img/#{$item}/#{$item}#{$i}.png);
+            background-size: cover;
         }
     }
 }
@@ -83,11 +82,13 @@ $total in $items {
 #capture {
     width: 100%;
     background-color: blue;
+    margin-left: 5%;
     color: white;
     font-weight: bold;
     font-size: large;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-radius: 30px;
 }
 
 .partsButton {
