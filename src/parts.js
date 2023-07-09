@@ -28,6 +28,14 @@ const hairItems = [
         pointingIndex: 8
     },
     {
+        text: "하양짱갈래",
+        pointingIndex: 19
+    },
+    {
+        text: "회색짱갈래",
+        pointingIndex: 18
+    },
+    {
         text: "헤이하치",
         pointingIndex: 6
     },
@@ -48,6 +56,10 @@ const hairItems = [
         pointingIndex: 11
     },
     {
+        text: "까망보브",
+        pointingIndex: 21
+    },
+    {
         text: "독도다연",
         pointingIndex: 12
     },
@@ -66,6 +78,22 @@ const hairItems = [
     {
         text: "빨강숏컷",
         pointingIndex: 17
+    },
+    {
+        text: "까망숏컷",
+        pointingIndex: 20
+    },
+    {
+        text: "일진",
+        pointingIndex: 22
+    },
+    {
+        text: "갈색 컬 보브",
+        pointingIndex: 23
+    },
+    {
+        text: "블론드 컬 보브",
+        pointingIndex: 24
     }
 ]
 
@@ -184,6 +212,10 @@ const weaponItems = [
     {
         text: "팻말",
         pointingIndex: 13
+    },
+    {
+        text: "화염병",
+        pointingIndex: 14
     }
 ]
 
@@ -283,7 +315,31 @@ const accessoryAitems = [
     {
         text: "VR 헤드셋",
         pointingIndex: 24
-    }
+    },
+    {
+        text: "흰 토끼 머리띠",
+        pointingIndex: 25
+    },
+    {
+        text: "검은 토끼 머리띠",
+        pointingIndex: 26
+    },
+    {
+        text: "단안경",
+        pointingIndex: 27
+    },
+    {
+        text: "결사반대 머리띠",
+        pointingIndex: 28
+    },
+    {
+        text: "팬텀 스티커",
+        pointingIndex: 29
+    },
+    {
+        text: "스카우터",
+        pointingIndex: 30
+    },
 ]
 
 const accessoryBitems = [
@@ -302,6 +358,30 @@ const accessoryBitems = [
     {
         text: "악마날개",
         pointingIndex: 4
+    },
+    {
+        text: "악마꼬리",
+        pointingIndex: 5
+    },
+    {
+        text: "스타벅스",
+        pointingIndex: 6
+    },
+    {
+        text: "인어공주",
+        pointingIndex: 7
+    },
+    {
+        text: "크툴루",
+        pointingIndex: 8
+    },
+    {
+        text: "망토",
+        pointingIndex: 9
+    },
+    {
+        text: "쿠로네코",
+        pointingIndex: 10
     }
 ]
 
@@ -405,6 +485,18 @@ const makeupItems = [
     {
         text: "지뢰계",
         pointingIndex: 24
+    },
+    {
+        text: "안대(좌)",
+        pointingIndex: 26
+    },
+    {
+        text: "안대(우)",
+        pointingIndex: 27
+    },
+    {
+        text: "크레이토스",
+        pointingIndex: 28
     }
 ]
 
