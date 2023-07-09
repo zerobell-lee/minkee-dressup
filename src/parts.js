@@ -430,31 +430,59 @@ const balloonItems = [
 const parts = {
     hairs: {
         label: "머가리",
-        items: hairItems
+        items: hairItems,
+        tabStyle: {
+            backgroundColor: "#c5d0eb",
+            color: "#343434"
+        }
     },
     makeup: {
         label: "메이크업",
-        items: makeupItems
+        items: makeupItems,
+        tabStyle: {
+            backgroundColor: "#d0e1f5",
+            color: "#343434"
+        }
     },
     clothes: {
         label: "옷",
-        items: clotheItems
+        items: clotheItems,
+        tabStyle: {
+            backgroundColor: "#e8fffd",
+            color: "#343434"
+        }
     },
     weapons: {
         label: "무기",
-        items: weaponItems
+        items: weaponItems,
+        tabStyle: {
+            backgroundColor: "#fffcf7",
+            color: "#343434"
+        }
     },
     accessoriesA: {
         label: "악세사리A",
-        items: accessoryAitems
+        items: accessoryAitems,
+        tabStyle: {
+            backgroundColor: "#ffece3",
+            color: "#343434"
+        }
     },
     accessoriesB: {
         label: "악세사리B",
-        items: accessoryBitems
+        items: accessoryBitems,
+        tabStyle: {
+            backgroundColor: "#f5cbcb",
+            color: "#343434"
+        }
     },
     balloon: {
         label: "말풍선",
-        items: balloonItems
+        items: balloonItems,
+        tabStyle: {
+            backgroundColor: "#f075ab",
+            color: "#343434"
+        }
     }
 }
 

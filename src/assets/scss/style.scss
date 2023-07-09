@@ -2,15 +2,37 @@
     --makerBg: "#000000";
 }
 
+#appHeader {
+    background-color: #1e5ee4;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-width: 0.5rem;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #bdbdbd;
+    color: white;
+    box-shadow: 0rem 0.2rem 5px grey;
+}
+
+#titleContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 #container {
     margin: auto;
     position: relative;
     max-width: 731px;
     width: 100%;
-}
-
-#container h1 {
-    text-align: center;
+    background-color: white;
+    height: 100%;
 }
 
 #controlPanel {
@@ -81,14 +103,13 @@ $total in $items {
 
 #capture {
     width: 100%;
-    background-color: blue;
-    margin-left: 5%;
+    background-color: hsl(0, 69%, 60%);
     color: white;
     font-weight: bold;
-    font-size: large;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 30px;
+    font-size: x-large;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-width: 0;
 }
 
 .partsButton {
@@ -117,4 +138,12 @@ $total in $items {
     margin: auto;
     padding: 15px;
     display: flex;
+}
+
+#captureButtonContainer {
+    position: fixed;
+    width: 100%;
+    max-width: 731px;
+    bottom: 0;
+    padding: 0;
 }

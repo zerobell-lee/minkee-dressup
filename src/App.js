@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
+import './App.css';
 import parts from './parts';
 import { SketchPicker } from 'react-color'
 
@@ -101,7 +102,11 @@ function App() {
   return (
     <div className="App">
       <div id="container">
-        <h1>나만의 민킈를 만들어보자!!!</h1>
+        <div id="appHeader">
+          <div id="titleContainer">
+          <h1>Minkee Maker</h1>
+          </div>
+        </div>
         <div id="background" ref={domElement}>
           { dressupState.accessoriesB.map((chosenOne) => <div className={"accessoriesB" + chosenOne}></div>) }
           <div id="body"></div>
@@ -115,16 +120,16 @@ function App() {
         </div>
 
         <Tabs>
-          <TabList>
+          <TabList style={{marginBottom: 0}}>
             {Object.keys(parts).map((item) =>
-              <Tab>{parts[item].label}</Tab>
+              <Tab style={{...parts[item].tabStyle, fontWeight: "bold"}}>{parts[item].label}</Tab>
             )}
-            <Tab>배경</Tab>
+            <Tab style={{color: "#343434", fontWeight: "bold"}}>배경</Tab>
           </TabList>
 
           {
             Object.keys(parts).map((item) =>
-              <TabPanel>
+              <TabPanel style={{...parts[item].tabStyle}}>
                 {
                   <div className='partsTabPanel'>
                     {
@@ -147,7 +152,9 @@ function App() {
             </div>
           </TabPanel>
         </Tabs>
-        <input type="button" value="다운로드" id="capture" onClick={downloadImage} />
+        <div id="captureButtonContainer">
+          <input type="button" value="Download Image" id="capture" onClick={downloadImage} />
+        </div>
       </div>
     </div>
   );
