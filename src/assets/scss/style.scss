@@ -46,9 +46,12 @@
 // update this map when new items or categories are added
 $items: (
     "hairs": 17,
-    "weapons": 7,
-    "clothes": 12,
-    "accessoriesA": 15
+    "weapons": 13,
+    "clothes": 15,
+    "accessoriesA": 24,
+    "accessoriesB": 4,
+    "balloon": 4,
+    "makeup": 25
 );
 
 @each $item,

@@ -19,7 +19,6 @@ const FileUploader = (props) => {
     const fileReader = new FileReader();
     fileReader.onload = async () => {
       const srcData = fileReader.result;
-      console.log("base64:", srcData)
       await props.handleFile(srcData);
     }
     fileReader.readAsDataURL(fileUploaded);
@@ -48,10 +47,13 @@ function App() {
 
   // ATM you need to manually add new items and update the total values per item 
   const [dressupState, setDressupState] = useState({
+    accessoriesB: [],
+    makeup: [],
     hairs: [],
     clothes: [],
     weapons: [],
     accessoriesA: [],
+    balloon: []
   });
 
   const [bgColor, setBgColor] = useState("#ffffff")
@@ -101,10 +103,10 @@ function App() {
       <div id="container">
         <h1>나만의 민킈를 만들어보자!!!</h1>
         <div id="background" ref={domElement}>
+          { dressupState.accessoriesB.map((chosenOne) => <div className={"accessoriesB" + chosenOne}></div>) }
           <div id="body"></div>
           {
-            
-            Object.keys(dressupState).map((item) => 
+            Object.keys(dressupState).filter(e => e !== "accessoriesB").map((item) => 
               dressupState[item].map((chosenOne) =>
                 <div className={item + chosenOne} key={item + chosenOne}></div>
               )
