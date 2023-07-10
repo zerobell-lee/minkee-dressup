@@ -94,6 +94,42 @@ const hairItems = [
     {
         text: "블론드 컬 보브",
         pointingIndex: 24
+    },
+    {
+        text: "블루 시스루뱅",
+        pointingIndex: 25
+    },
+    {
+        text: "레드 시스루뱅",
+        pointingIndex: 26
+    },
+    {
+        text: "블랙 시스루뱅",
+        pointingIndex: 27
+    },
+    {
+        text: "블루 롱헤어A",
+        pointingIndex: 28
+    },
+    {
+        text: "레드 롱헤어A",
+        pointingIndex: 29
+    },
+    {
+        text: "블랙 롱헤어A",
+        pointingIndex: 30
+    },
+    {
+        text: "블루 롱헤어B",
+        pointingIndex: 31
+    },
+    {
+        text: "레드 롱헤어B",
+        pointingIndex: 32
+    },
+    {
+        text: "블랙 롱헤어B",
+        pointingIndex: 33
     }
 ]
 
@@ -147,8 +183,12 @@ const clotheItems = [
         pointingIndex: 12
     },
     {
-        text: "야구잠바",
+        text: "야구잠바파랑",
         pointingIndex: 13
+    },
+    {
+        text: "야구잠바빨강",
+        pointingIndex: 34
     },
     {
         text: "민속촌 야방 한복",
@@ -157,6 +197,78 @@ const clotheItems = [
     {
         text: "플스잉 한복",
         pointingIndex: 15
+    },
+    {
+        text: "퍼자켓",
+        pointingIndex: 16
+    },
+    {
+        text: "와이셔츠",
+        pointingIndex: 17
+    },
+    {
+        text: "빨강넥타이",
+        pointingIndex: 18
+    },
+    {
+        text: "파랑넥타이",
+        pointingIndex: 19
+    },
+    {
+        text: "회색넥타이",
+        pointingIndex: 20
+    },
+    {
+        text: "까망넥타이",
+        pointingIndex: 21
+    },
+    {
+        text: "차콜 블레이저",
+        pointingIndex: 22
+    },
+    {
+        text: "베이지 블레이저",
+        pointingIndex: 23
+    },
+    {
+        text: "레드 블레이저",
+        pointingIndex: 24
+    },
+    {
+        text: "네이비 블레이저",
+        pointingIndex: 25
+    },
+    {
+        text: "아가일 가디건",
+        pointingIndex: 26
+    },
+    {
+        text: "흰티",
+        pointingIndex: 27
+    },
+    {
+        text: "까망티",
+        pointingIndex: 28
+    },
+    {
+        text: "빨강티",
+        pointingIndex: 29
+    },
+    {
+        text: "핑크티",
+        pointingIndex: 30
+    },
+    {
+        text: "파랑티",
+        pointingIndex: 31
+    },
+    {
+        text: "주황티",
+        pointingIndex: 32
+    },
+    {
+        text: "네온라임티",
+        pointingIndex: 33
     }
 ]
 
@@ -166,7 +278,7 @@ const weaponItems = [
         pointingIndex: 3
     },
     {
-        text: "데스스타",
+        text: "모닝스타",
         pointingIndex: 1
     },
     {
@@ -186,7 +298,7 @@ const weaponItems = [
         pointingIndex: 6
     },
     {
-        text: "스시라차",
+        text: "스리라차",
         pointingIndex: 7
     },
     {
@@ -216,6 +328,18 @@ const weaponItems = [
     {
         text: "화염병",
         pointingIndex: 14
+    },
+    {
+        text: "아아",
+        pointingIndex: 15
+    },
+    {
+        text: "옐로카드",
+        pointingIndex: 16
+    },
+    {
+        text: "레드카드",
+        pointingIndex: 17
     }
 ]
 
