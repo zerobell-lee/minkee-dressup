@@ -44,7 +44,9 @@ function App() {
     const dataUrl = await htmlToImage.toPng(domElement.current)
 
     const link = document.createElement("a");
-    link.download = 'minkee.png';
+    const timestamp = new Date() / 1
+    const filename = `minkee-${timestamp}.png`
+    link.download = filename
     link.href = dataUrl;
     link.click();
   };
