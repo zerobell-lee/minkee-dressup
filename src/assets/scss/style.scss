@@ -66,7 +66,7 @@
 
 // update this map when new items or categories are added
 $items: (
-    "hairs": 33,
+    "hairs": 15,
     "weapons": 17,
     "clothes": 34,
     "accessoriesA": 30,
@@ -133,6 +133,17 @@ $total in $items {
     padding: 15px;
 }
 
+.partsList {
+    width: 50%;
+    font-size: large;
+    text-align: center;
+}
+
+.partsDetail {
+    width: 50%;
+    display: inline-block;
+}
+
 #bgControlPanel {
     width: 50%;
     margin: auto;
@@ -146,4 +157,25 @@ $total in $items {
     max-width: 731px;
     bottom: 0;
     padding: 0;
+}
+
+.chrome-picker {
+    width: 50%;
+}
+
+.detach-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.attach-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
 }
