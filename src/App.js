@@ -12,7 +12,7 @@ import PartsSelection from './components/PartsSelection';
 
 const ResultImage = ({encodedImage, closeModal}) => {
   return <div id="resultModal">
-    <img className='resultImg' src={encodedImage}/>
+    <img className='resultImg' src={encodedImage} alt="result"/>
     <input type="button" className="partsButton" value="X" onClick={() => closeModal()}/>
   </div>
 }
