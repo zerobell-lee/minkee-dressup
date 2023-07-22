@@ -78,8 +78,10 @@ const PartsDetail = (props) => {
                     부위 {i + 1}
 
                 </div>
+                <div style={{display: "inline-flex"}}>
                 <div id="paletteBoard">
                     {e.defaultColor.map(c => <div style={{ backgroundColor: c }} className={`paletteColor ${determineChosen(e.id, c)}`} onClick={() => handlePartsColorChanged(e.id, c)}></div>)}
+                </div>
                 </div>
                 <div>
                     <div id="customColorBoard">
