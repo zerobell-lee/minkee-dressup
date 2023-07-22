@@ -12,6 +12,10 @@ import { ReactComponent as Dress } from '../assets/img/clothes/clothes4-1.svg'
 import { ReactComponent as BaseballJumper1 } from '../assets/img/clothes/clothes13-1.svg'
 import { ReactComponent as BaseballJumper2 } from '../assets/img/clothes/clothes13-2.svg'
 import { ReactComponent as Shirt1 } from '../assets/img/clothes/clothes29-1.svg'
+import { ReactComponent as Ribbon1 } from '../assets/img/accessoriesA/accessoriesA3-1.svg'
+import { ReactComponent as Offshoulder1 } from '../assets/img/clothes/clothes12-1.svg'
+import { ReactComponent as Necktie1 } from '../assets/img/clothes/clothes18-1.svg'
+import { ReactComponent as Blazer1 } from '../assets/img/clothes/clothes22-1.svg'
 
 const subParts = {
     defaultTwintail: (color) => <DefaultHair fill={color} className='svgParts' />,
@@ -28,6 +32,10 @@ const subParts = {
     baseballJumper1: (color) => <BaseballJumper1 fill={color} className='svgParts' />,
     baseballJumper2: (color) => <BaseballJumper2 fill={color} className='svgParts' />,
     shirt1: (color) => <Shirt1 fill={color} className='svgParts' />,
+    ribbon1: (color) => <Ribbon1 fill={color} className='svgParts' />,
+    offShoulder1: (color) => <Offshoulder1 fill={color} className='svgParts' />,
+    necktie1: (color) => <Necktie1 fill={color} className='svgParts' />,
+    blazer1: (color) => <Blazer1 fill={color} className='svgParts' />,
   }
 
 export default subParts

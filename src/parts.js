@@ -245,7 +245,14 @@ const clotheItems = [
         text: "오프숄더",
         category: "clothes",
         colorable: true,
-        pointingIndex: 12
+        pointingIndex: 12,
+        subParts: [
+            {
+                id: "offShoulder1",
+                targetSvg: "offShoulder1",
+                defaultColor: ["#c20e0e"]
+            }
+        ]
     },
     {
         id: "baseball jumper",
@@ -299,14 +306,28 @@ const clotheItems = [
         text: "넥타이",
         category: "clothes",
         colorable: true,
-        pointingIndex: 18
+        pointingIndex: 18,
+        subParts: [
+            {
+                id: "necktie1",
+                targetSvg: "necktie1",
+                defaultColor: ["#c20e0e", "#2026cf", "#5a5a5a", "#000000"]
+            }
+        ]
     },
     {
         id: "blazer",
         text: "블레이저",
         category: "clothes",
         colorable: true,
-        pointingIndex: 22
+        pointingIndex: 22,
+        subParts: [
+            {
+                id: "blazer1",
+                targetSvg: "blazer1",
+                defaultColor: ["#373737", "#ffc87b", "#ef3030", "#0d258e"]
+            }
+        ]
     },
     {
         id: "agile cardigan",
@@ -450,6 +471,34 @@ const weaponItems = [
         category: "weapon",
         colorable: false,
         pointingIndex: 17
+    },
+    {
+        id: "rod",
+        text: "낚싯대",
+        category: "weapon",
+        colorable: false,
+        pointingIndex: 18
+    },
+    {
+        id: "whip",
+        text: "채찍피티",
+        category: "weapon",
+        colorable: false,
+        pointingIndex: 19
+    },
+    {
+        id: "book",
+        text: "책",
+        category: "weapon",
+        colorable: false,
+        pointingIndex: 20
+    },
+    {
+        id: "axe",
+        text: "도끼",
+        category: "weapon",
+        colorable: false,
+        pointingIndex: 21
     }
 ]
 
@@ -473,7 +522,14 @@ const accessoryAitems = [
         text: "리본",
         category: "accessoriesA",
         color: true,
-        pointingIndex: 3
+        pointingIndex: 3,
+        subParts: [
+            {
+                id: "ribbon1",
+                targetSvg: "ribbon1",
+                defaultColor: ["#ff0000"]
+            }
+        ]
     },
     {
         id: "thick glasses",
@@ -634,6 +690,11 @@ const accessoryAitems = [
         id: "scouter",
         text: "스카우터",
         pointingIndex: 30
+    },
+    {
+        id: "wheat hat",
+        text: "밀짚모자",
+        pointingIndex: 31
     },
 ]
 
