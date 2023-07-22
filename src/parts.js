@@ -9,7 +9,7 @@ const hairItems = [
             {
                 id: "twintail1",
                 targetSvg: "defaultTwintail",
-                defaultColor: "#3f48cc"
+                defaultColor: ["#3f48cc", "#cc3f3f", "#53cc3f", "#ffe745","#ffffff","#000000"]
             }
         ]
     },
@@ -37,7 +37,7 @@ const hairItems = [
             {
                 id: "heihachi1",
                 targetSvg: "heihachiHair",
-                defaultColor: "#808080" 
+                defaultColor: ["#808080"]
             }
         ]
     },
@@ -58,7 +58,7 @@ const hairItems = [
             {
                 id: "bobHair1",
                 targetSvg: "bobHair",
-                defaultColor: "#be3535" 
+                defaultColor: ["#be3535", "#3f48cc", "#88fabf"]
             }
         ]
     },
@@ -93,7 +93,7 @@ const hairItems = [
             {
                 id: "shortcutHair1",
                 targetSvg: "shortcutHair",
-                defaultColor: "#3f48cc" 
+                defaultColor: ["#3f48cc", "#cc3f3f", "#53cc3f", "#ffe745","#ffffff","#000000"]
             }
         ]
     },
@@ -114,7 +114,7 @@ const hairItems = [
             {
                 id: "curledBobHair1",
                 targetSvg: "curledBobHair",
-                defaultColor: "#e66a57" 
+                defaultColor: ["#e66a57", "#ffd689"]
             }
         ]
     },
@@ -128,7 +128,7 @@ const hairItems = [
             {
                 id: "seeThroughBangHair1",
                 targetSvg: "seeThroughBang",
-                defaultColor: "#3f48cc"
+                defaultColor: ["#3f48cc", "#cc3f3f", "#53cc3f", "#ffe745","#ffffff","#000000"]
             }
         ]
     },
@@ -142,7 +142,7 @@ const hairItems = [
             {
                 id: "longHairA1",
                 targetSvg: "longHairA",
-                defaultColor: "#3f48cc"
+                defaultColor: ["#3f48cc", "#cc3f3f", "#53cc3f", "#ffe745","#ffffff","#000000"]
             }
         ]
     },
@@ -156,7 +156,7 @@ const hairItems = [
             {
                 id: "longHairB1",
                 targetSvg: "longHairB",
-                defaultColor: "#3f48cc"
+                defaultColor: ["#3f48cc", "#cc3f3f", "#53cc3f", "#ffe745","#ffffff","#000000"]
             }
         ]
     }
@@ -173,7 +173,7 @@ const clotheItems = [
             {
                 id: "dress1",
                 targetSvg: "dress",
-                defaultColor: "#ffffff"
+                defaultColor: ["#ffffff", "#000000"]
             }
         ]
     },
@@ -257,12 +257,12 @@ const clotheItems = [
             {
                 id: "baseballJumper1",
                 targetSvg: "baseballJumper1",
-                defaultColor: "#3735a5"
+                defaultColor: ["#3735a5", "#a53535"]
             },
             {
                 id: "baseballJumper2",
                 targetSvg: "baseballJumper2",
-                defaultColor: "#ffffff"
+                defaultColor: ["#ffffff"]
             }
         ]
     },
@@ -317,10 +317,17 @@ const clotheItems = [
     },
     {
         id: "tshirt",
-        text: "반팔 티셔츠",
+        text: "이너 티",
         category: "clothes",
         colorable: true,
-        pointingIndex: 27
+        pointingIndex: 29,
+        subParts: [
+            {
+                id: "shirt1",
+                targetSvg: "shirt1",
+                defaultColor: ["#ffffff", "#000000"]
+            }
+        ]
     }
 ]
 
@@ -682,7 +689,7 @@ const makeupItems = [
             {
                 id: "lip1",
                 targetSvg: "lip",
-                defaultColor: "#ff5e00"
+                defaultColor: ["#ff5e00", "#3f48cc", "#ff0000", "#000000"]
             }
         ]
     },
@@ -764,7 +771,7 @@ const makeupItems = [
             {
                 id: "circleLens1",
                 targetSvg: "circleLens",
-                defaultColor: "#38d059"
+                defaultColor: ["#3f48cc", "#cc3f3f", "#53cc3f", "#ffe745","#ffffff","#000000"]
             }
         ]
     },

@@ -10,6 +10,13 @@ import subParts from './components/SubPartsComponents';
 import PartsLayer from './components/PartsLayer';
 import PartsSelection from './components/PartsSelection';
 
+const ResultImage = ({encodedImage, closeModal}) => {
+  return <div id="resultModal">
+    <img className='resultImg' src={encodedImage}/>
+    <input type="button" className="partsButton" value="X" onClick={() => closeModal()}/>
+  </div>
+}
+
 const FileUploader = (props) => {
 
   const hiddenFileInput = useRef(null);
@@ -40,15 +47,19 @@ function App() {
 
   const domElement = useRef(null);
 
-  const downloadImage = async () => {
+  const renderImage = async () => {
     const dataUrl = await htmlToImage.toPng(domElement.current)
 
-    const link = document.createElement("a");
-    const timestamp = new Date() / 1
-    const filename = `minkee-${timestamp}.png`
-    link.download = filename
-    link.href = dataUrl;
-    link.click();
+    console.log(dataUrl)
+
+    setResultImage(dataUrl)
+    setDisplayResultImage(true)
+    // const link = document.createElement("a");
+    // const timestamp = new Date() / 1
+    // const filename = `minkee-${timestamp}.png`
+    // link.download = filename
+    // link.href = dataUrl;
+    // link.click();
   };
 
   const [dressupState, setDressupState] = useState({
@@ -61,6 +72,13 @@ function App() {
     balloon: []
   });
 
+  const [displayResultImage, setDisplayResultImage] = useState(false);
+  const [resultImage, setResultImage] = useState(null);
+
+  const closeResultImage = () => {
+    setDisplayResultImage(false)
+  }
+
   const [colorMap, setColorMap] = useState({})
 
   const colorParts = (id, color) => {
@@ -72,9 +90,6 @@ function App() {
   const updateDressUp = (item, new_current) => {
     const chosenOnes = dressupState[item]
     let newChosenOnes = []
-
-    console.log(new_current)
-    console.log(chosenOnes)
 
     if (chosenOnes.indexOf(new_current) >= 0) {
       newChosenOnes = chosenOnes.filter(e => e !== new_current)
@@ -130,7 +145,7 @@ function App() {
                 <PartsLayer category={item} cssIndex={chosenOne}>
                   {
                     findSubPartsInfo({ category: item, index: chosenOne }).map((p) => {
-                      return subParts[p.targetSvg](colorMap[p.id] ? colorMap[p.id] : p.defaultColor)
+                      return subParts[p.targetSvg](colorMap[p.id] ? colorMap[p.id] : p.defaultColor[0])
                     })}
                 </PartsLayer>
               )
@@ -174,8 +189,10 @@ function App() {
             </div>
           </TabPanel>
         </Tabs>
+        {displayResultImage && <div id='modalBg'/>}
+        {displayResultImage && <ResultImage encodedImage={resultImage} closeModal={() => closeResultImage()}/>}
         <div id="captureButtonContainer">
-          <input type="button" value="Download Image" id="capture" onClick={downloadImage} />
+          <input type="button" value="Download Image" id="capture" onClick={renderImage} />
         </div>
       </div>
     </div>

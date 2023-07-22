@@ -140,6 +140,7 @@ $total in $items {
 }
 
 .partsDetail {
+    max-width: 365px;
     width: 50%;
     display: inline-block;
 }
@@ -178,4 +179,106 @@ $total in $items {
     background-color: white;
     border-radius: 30px;
     padding: 10px;
+}
+
+#paletteBoard {
+    display: inline-flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.paletteColor {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.chosenColor {
+    border: black;
+    border-width: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+.chosenColorWhite {
+    border: white;
+    border-width: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+#customColorBoard {
+    display: inline-flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.centerModal {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.listViewContainer {
+    font-size: large;
+    display: inline-block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 50%;
+    height: 30%;
+    max-width: 365px;
+    padding: 0;
+}
+
+.listViewItem {
+    cursor: pointer;
+    width: 100%;
+    max-width: 365px;
+    background-color: white;
+}
+
+.chosenListViewItem {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+
+#modalBg {
+    content: "";
+    display: block;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+#resultModal {
+    z-index: 11;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resultImg {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 731px;
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
+}
+
+.svgParts {
+    position: absolute;
+    top: 0;
+    left: 0;
 }

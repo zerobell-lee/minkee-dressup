@@ -1,16 +1,43 @@
 import { useState } from "react"
 import { ChromePicker } from 'react-color'
+import './picker.css'
+
+const ListView = (props) => {
+    const { items, selected, onChange} = props
+
+    console.log("Selected is")
+    console.log(selected)
+
+    const determineSelected = (id) => {
+        if (selected.id === id) return "chosenListViewItem"
+        return "listViewItem"
+    }
+
+    return <div className="listViewContainer">
+        {items.map(e => {
+            return <div className={`${determineSelected(e.id)}`} onClick={() => onChange(e.id)}>{e.text}</div>
+        })}
+    </div>
+}
 
 const PartsList = ({ selected, items, onChange }) => {
-    return <select selected={selected.id} multiple onChange={onChange} className="partsList" size="10" >
-        {items.map(e => {
-            return <option value={e.id}>{e.text}</option>
-        })}
-    </select>
+    return <ListView items={items} selected={selected} onChange={onChange} />
+}
+
+const CustomColorPicker = (props) => {
+    const { colorMap, subPart, handlePartsColorChanged, setPickerOff } = props
+    console.log("Custom color. subPart :" + subPart.id)
+
+    return <div className="centerModal">
+        <ChromePicker color={colorMap[subPart.id] ? colorMap[subPart.id] : subPart.defaultColor[0]} onChange={(color) => handlePartsColorChanged(subPart.id, color.hex)} />
+        <input type="button" value="X" className="partsButton" onClick={() => setPickerOff()} />
+    </div>
 }
 
 const PartsDetail = (props) => {
     const { id, activated, onChange, subParts, updateDressUp, index, colorMap } = props
+
+    const [pickerOn, setPickerOn] = useState(0)
 
     const renderButton = (activated) => {
         const buttonValue = activated ? "해제" : "장착"
@@ -25,9 +52,19 @@ const PartsDetail = (props) => {
 
     const resetColor = () => {
         for (const element in subParts) {
-            console.log(element)
-            onChange({ id: subParts[element].id, color: subParts[element].defaultColor })
+            onChange({ id: subParts[element].id, color: subParts[element].defaultColor[0] })
         }
+    }
+
+    const determineChosen = (id, color) => {
+        if (colorMap[id] === undefined) return ""
+        if (colorMap[id] === color) {
+            if (color === "#000000") {
+                return "chosenColorWhite"
+            }
+            return "chosenColor"
+        }
+        return ""
     }
 
     return <div key={`subParts${id}`} className="partsDetail">
@@ -36,12 +73,20 @@ const PartsDetail = (props) => {
         {subParts.map((e, i) => {
             console.log(e.id)
             return <div>
-                <div style={{paddingTop: "2%", paddingBottom: "2%"}}>
-                    
+                <div style={{ paddingTop: "2%", paddingBottom: "2%" }}>
+
                     부위 {i + 1}
-                    
+
                 </div>
-                <ChromePicker color={colorMap[e.id] ? colorMap[e.id] : e.defaultColor} onChange={(color) => handlePartsColorChanged(e.id, color.hex)} />
+                <div id="paletteBoard">
+                    {e.defaultColor.map(c => <div style={{ backgroundColor: c }} className={`paletteColor ${determineChosen(e.id, c)}`} onClick={() => handlePartsColorChanged(e.id, c)}></div>)}
+                </div>
+                <div>
+                    <div id="customColorBoard">
+                        <input type="button" value="Customize" className="partsButton" onClick={() => setPickerOn(i+1)}/>
+                    </div>
+                </div>
+                {(pickerOn === i+1) && <CustomColorPicker subPart={e} colorMap={colorMap} handlePartsColorChanged={handlePartsColorChanged} setPickerOff={() => setPickerOn(0)} />}
             </div>
         })}
     </div>
@@ -51,9 +96,9 @@ const PartsSelection = (props) => {
     const { items, activatedParts, updatePartsColor, updateDressUp, colorMap } = props
     const [selected, setSelected] = useState(items[0])
 
-    const onItemClicked = (event) => {
+    const onItemClicked = (clickedItem) => {
         console.log(items)
-        setSelected(items.filter(e => e.id === event.target.value)[0])
+        setSelected(items.filter(e => e.id === clickedItem)[0])
     }
 
     console.log(selected)
