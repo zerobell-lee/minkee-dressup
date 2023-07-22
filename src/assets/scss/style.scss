@@ -182,19 +182,17 @@ $total in $items {
 }
 
 #paletteBoard {
-    display: flex;
+    display: inline-flex;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .paletteColor {
-    max-width: 30px;
-    max-height: 30px;
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
-    margin-right: 2%;
-    margin-left: 2%;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .chosenColor {
