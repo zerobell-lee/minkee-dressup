@@ -9,54 +9,12 @@ import { SketchPicker } from 'react-color'
 import subParts from './components/SubPartsComponents';
 import PartsLayer from './components/PartsLayer';
 import PartsSelection from './components/PartsSelection';
-
-const ResultImage = ({ encodedImage, closeModal }) => {
-  return <div id="resultModal">
-    {encodedImage && <img className='resultImg' src={encodedImage} alt="result" />}
-    {encodedImage === null && <div className='loader'></div>}
-    <input type="button" className="partsButton" value="X" onClick={() => closeModal()} />
-  </div>
-}
-
-const FileUploader = (props) => {
-
-  const hiddenFileInput = useRef(null);
-
-  const handleClick = (e) => {
-    hiddenFileInput.current.click();
-  };
-
-  const handleChange = (e) => {
-    const fileUploaded = e.target.files[0];
-    const fileReader = new FileReader();
-    fileReader.onload = async () => {
-      const srcData = fileReader.result;
-      await props.handleFile(srcData);
-    }
-    fileReader.readAsDataURL(fileUploaded);
-  };
-
-  return (
-    <>
-      <input type="button" value="업로드" onClick={handleClick} />
-      <input type="file" style={{ display: 'none' }} onChange={handleChange} ref={hiddenFileInput} />
-    </>
-  )
-};
+import ResultImage from './components/ResultImage';
+import FileUploader from './components/FileUploader';
 
 function App() {
 
   const domElement = useRef(null);
-
-  const renderImage = async () => {
-    setDisplayResultImage(true)
-    let dataUrl
-    for (let i = 0; i < 3; i++) {
-      dataUrl = await htmlToImage.toPng(domElement.current)
-    }
-
-    setResultImage(dataUrl)
-  };
 
   const [dressupState, setDressupState] = useState({
     accessoriesB: [],
@@ -67,21 +25,9 @@ function App() {
     accessoriesA: [],
     balloon: []
   });
-
   const [displayResultImage, setDisplayResultImage] = useState(false);
   const [resultImage, setResultImage] = useState(null);
-
-  const closeResultImage = () => {
-    setDisplayResultImage(false)
-    setResultImage(null)
-  }
-
   const [colorMap, setColorMap] = useState({})
-
-  const colorParts = (id, color) => {
-    setColorMap({ ...colorMap, [id]: color })
-  }
-
   const [bgColor, setBgColor] = useState("#ffffff")
 
   const updateDressUp = (item, new_current) => {
@@ -98,6 +44,25 @@ function App() {
       ...dressupState,
       [item]: newChosenOnes
     })
+  }
+
+  const renderImage = async () => {
+    setDisplayResultImage(true)
+    let dataUrl
+    for (let i = 0; i < 3; i++) {
+      dataUrl = await htmlToImage.toPng(domElement.current)
+    }
+
+    setResultImage(dataUrl)
+  };
+
+  const closeResultImage = () => {
+    setDisplayResultImage(false)
+    setResultImage(null)
+  }
+
+  const colorParts = (id, color) => {
+    setColorMap({ ...colorMap, [id]: color })
   }
 
   const updateBgColor = (color) => {
@@ -133,7 +98,6 @@ function App() {
         })}
     </PartsLayer>
   }
-
 
   return (
     <div className="App">
@@ -183,8 +147,8 @@ function App() {
           <TabPanel>
             <div id="bgControlPanel">
               <SketchPicker color={bgColor} onChange={updateBgColor} />
-              <div style={{ display: 'grid' }}>
-                <input type="button" value="배경 없애기" onClick={() => clearBgColor()} />
+              <div style={{ display: 'grid', marginLeft: "10px" }}>
+                <input type="button" value="배경 없애기" className='partsButton' onClick={() => clearBgColor()} />
                 <FileUploader handleFile={updateBgImg} />
               </div>
 
