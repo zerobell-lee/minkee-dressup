@@ -16,6 +16,7 @@ import { ReactComponent as Ribbon1 } from '../assets/img/accessoriesA/accessorie
 import { ReactComponent as Offshoulder1 } from '../assets/img/clothes/clothes12-1.svg'
 import { ReactComponent as Necktie1 } from '../assets/img/clothes/clothes18-1.svg'
 import { ReactComponent as Blazer1 } from '../assets/img/clothes/clothes22-1.svg'
+import { ReactComponent as AngelWing1 } from '../assets/img/accessoriesB/accessoriesB1-1.svg'
 
 const subParts = {
     defaultTwintail: (color) => <DefaultHair fill={color} className='svgParts' />,
@@ -36,6 +37,7 @@ const subParts = {
     offShoulder1: (color) => <Offshoulder1 fill={color} className='svgParts' />,
     necktie1: (color) => <Necktie1 fill={color} className='svgParts' />,
     blazer1: (color) => <Blazer1 fill={color} className='svgParts' />,
+    angelwing1: (color) => <AngelWing1 fill={color} className='svgParts' />,
   }
 
 export default subParts

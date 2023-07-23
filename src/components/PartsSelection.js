@@ -5,9 +5,6 @@ import './picker.css'
 const ListView = (props) => {
     const { items, selected, onChange} = props
 
-    console.log("Selected is")
-    console.log(selected)
-
     const determineSelected = (id) => {
         if (selected.id === id) return "chosenListViewItem"
         return "listViewItem"
@@ -26,7 +23,6 @@ const PartsList = ({ selected, items, onChange }) => {
 
 const CustomColorPicker = (props) => {
     const { colorMap, subPart, handlePartsColorChanged, setPickerOff } = props
-    console.log("Custom color. subPart :" + subPart.id)
 
     return <div className="centerModal">
         <ChromePicker color={colorMap[subPart.id] ? colorMap[subPart.id] : subPart.defaultColor[0]} onChange={(color) => handlePartsColorChanged(subPart.id, color.hex)} />
@@ -50,12 +46,6 @@ const PartsDetail = (props) => {
         onChange({ id: subId, color })
     }
 
-    const resetColor = () => {
-        for (const element in subParts) {
-            onChange({ id: subParts[element].id, color: subParts[element].defaultColor[0] })
-        }
-    }
-
     const determineChosen = (id, color) => {
         if (colorMap[id] === undefined) return ""
         if (colorMap[id] === color) {
@@ -69,9 +59,7 @@ const PartsDetail = (props) => {
 
     return <div key={`subParts${id}`} className="partsDetail">
         {renderButton(activated)}
-        <input type="button" value="기본값으로" className="partsButton" onClick={() => resetColor()} />
         {subParts.map((e, i) => {
-            console.log(e.id)
             return <div>
                 <div style={{ paddingTop: "2%", paddingBottom: "2%" }}>
 
@@ -99,11 +87,8 @@ const PartsSelection = (props) => {
     const [selected, setSelected] = useState(items[0])
 
     const onItemClicked = (clickedItem) => {
-        console.log(items)
         setSelected(items.filter(e => e.id === clickedItem)[0])
     }
-
-    console.log(selected)
 
     return <div style={{ display: "flex" }}>
         <PartsList selected={selected} items={items} onChange={onItemClicked} />

@@ -10,11 +10,11 @@ import subParts from './components/SubPartsComponents';
 import PartsLayer from './components/PartsLayer';
 import PartsSelection from './components/PartsSelection';
 
-const ResultImage = ({encodedImage, closeModal}) => {
+const ResultImage = ({ encodedImage, closeModal }) => {
   return <div id="resultModal">
-    {encodedImage && <img className='resultImg' src={encodedImage} alt="result"/>}
+    {encodedImage && <img className='resultImg' src={encodedImage} alt="result" />}
     {encodedImage === null && <div className='loader'></div>}
-    <input type="button" className="partsButton" value="X" onClick={() => closeModal()}/>
+    <input type="button" className="partsButton" value="X" onClick={() => closeModal()} />
   </div>
 }
 
@@ -79,7 +79,7 @@ function App() {
   const [colorMap, setColorMap] = useState({})
 
   const colorParts = (id, color) => {
-    setColorMap({...colorMap, [id]: color})
+    setColorMap({ ...colorMap, [id]: color })
   }
 
   const [bgColor, setBgColor] = useState("#ffffff")
@@ -125,6 +125,16 @@ function App() {
     return ret.subParts
   }
 
+  const renderPartsLayer = (category, index) => {
+    return <PartsLayer category={category} cssIndex={index}>
+      {
+        findSubPartsInfo({ category: category, index: index }).map((p) => {
+          return subParts[p.targetSvg](colorMap[p.id] ? colorMap[p.id] : p.defaultColor[0])
+        })}
+    </PartsLayer>
+  }
+
+
   return (
     <div className="App">
       <div id="container">
@@ -134,17 +144,12 @@ function App() {
           </div>
         </div>
         <div id="background" ref={domElement}>
-          {dressupState.accessoriesB.map((chosenOne) => <div className={"accessoriesB" + chosenOne}></div>)}
+          {dressupState.accessoriesB.map((chosenOne) => renderPartsLayer("accessoriesB", chosenOne))}
           <div id="body" />
           {
             Object.keys(dressupState).filter(e => e !== "accessoriesB").map((item) =>
               dressupState[item].map((chosenOne) =>
-                <PartsLayer category={item} cssIndex={chosenOne}>
-                  {
-                    findSubPartsInfo({ category: item, index: chosenOne }).map((p) => {
-                      return subParts[p.targetSvg](colorMap[p.id] ? colorMap[p.id] : p.defaultColor[0])
-                    })}
-                </PartsLayer>
+                renderPartsLayer(item, chosenOne)
               )
             )
           }
@@ -163,7 +168,7 @@ function App() {
               <TabPanel style={{ ...parts[item].tabStyle, paddingBottom: "10%" }}>
                 {
                   <div className='partsTabPanel'>
-                    <PartsSelection 
+                    <PartsSelection
                       items={parts[item].items}
                       colorMap={colorMap}
                       activatedParts={dressupState[item]}
@@ -186,8 +191,8 @@ function App() {
             </div>
           </TabPanel>
         </Tabs>
-        {displayResultImage && <div id='modalBg'/>}
-        {displayResultImage && <ResultImage encodedImage={resultImage} closeModal={() => closeResultImage()}/>}
+        {displayResultImage && <div id='modalBg' />}
+        {displayResultImage && <ResultImage encodedImage={resultImage} closeModal={() => closeResultImage()} />}
         <div id="captureButtonContainer">
           <input type="button" value="Download Image" id="capture" onClick={renderImage} />
         </div>

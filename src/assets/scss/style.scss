@@ -116,6 +116,8 @@ $total in $items {
     margin-right: 10px;
     margin-bottom: 10px;
     background-color: white;
+    color: black;
+    border-style: solid;
     border-radius: 30px;
     padding: 10px;
 }
@@ -125,6 +127,7 @@ $total in $items {
     margin-bottom: 10px;
     background-color: black;
     color: white;
+    border-style: solid;
     border-radius: 30px;
     padding: 10px;
 }
@@ -167,6 +170,7 @@ $total in $items {
 .detach-button {
     margin-right: 10px;
     margin-bottom: 10px;
+    border-style: solid;
     background-color: blue;
     color: white;
     border-radius: 30px;
@@ -176,6 +180,7 @@ $total in $items {
 .attach-button {
     margin-right: 10px;
     margin-bottom: 10px;
+    border-style: solid;
     background-color: white;
     border-radius: 30px;
     padding: 10px;

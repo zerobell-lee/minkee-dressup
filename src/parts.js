@@ -702,7 +702,14 @@ const accessoryBitems = [
     {
         id: "angel wing",
         text: "천사날개",
-        pointingIndex: 1
+        pointingIndex: 1,
+        subParts: [
+            {
+                id: "angelwing1",
+                targetSvg: "angelwing1",
+                defaultColor: ["#ffffff", "#CA3636", "#2B2B2B"]
+            }
+        ]
     },
     {
         id: "devil wing",
