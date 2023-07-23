@@ -349,7 +349,21 @@ const clotheItems = [
                 defaultColor: ["#ffffff", "#000000"]
             }
         ]
-    }
+    },
+    {
+        id: "lashguard",
+        text: "래시가드",
+        category: "clothes",
+        colorable: false,
+        pointingIndex: 35
+    },
+    {
+        id: "nurse",
+        text: "간호복",
+        category: "clothes",
+        colorable: false,
+        pointingIndex: 36
+    },
 ]
 
 const weaponItems = [
@@ -499,6 +513,13 @@ const weaponItems = [
         category: "weapon",
         colorable: false,
         pointingIndex: 21
+    },
+    {
+        id: "injector",
+        text: "주사기",
+        category: "weapon",
+        colorable: false,
+        pointingIndex: 22
     }
 ]
 
@@ -606,14 +627,28 @@ const accessoryAitems = [
         text: "뿔",
         category: "accessoriesA",
         color: false,
-        pointingIndex: 15
+        pointingIndex: 15,
+        subParts: [
+            {
+                id: "thorn1",
+                targetSvg: "thorn1",
+                defaultColor: ["#ba3434"]
+            }
+        ]
     },
     {
         id: "mask",
         text: "마스크",
         category: "accessoriesA",
         color: false,
-        pointingIndex: 16
+        pointingIndex: 16,
+        subParts: [
+            {
+                id: "mask1",
+                targetSvg: "mask1",
+                defaultColor: ["#ffffff", "#000000"]
+            }
+        ]
     },
     {
         id: "hentai mask",
@@ -696,6 +731,31 @@ const accessoryAitems = [
         text: "밀짚모자",
         pointingIndex: 31
     },
+    {
+        id: "tube",
+        text: "튜브",
+        pointingIndex: 32
+    },
+    {
+        id: "nurse cap",
+        text: "너스캡",
+        pointingIndex: 33
+    },
+    {
+        id: "snorkle",
+        text: "스노클",
+        pointingIndex: 34
+    },
+    {
+        id: "shoulder mole left",
+        text: "어깨점(좌)",
+        pointingIndex: 35
+    },
+    {
+        id: "shoulder mole right",
+        text: "어깨점(우)",
+        pointingIndex: 36
+    }
 ]
 
 const accessoryBitems = [
@@ -714,7 +774,14 @@ const accessoryBitems = [
     {
         id: "devil wing",
         text: "악마날개",
-        pointingIndex: 4
+        pointingIndex: 4,
+        subParts: [
+            {
+                id: "devilwing1",
+                targetSvg: "devilwing1",
+                defaultColor: ["#1c1c1c", "#CA3636", "#ffffff"]
+            }
+        ]
     },
     {
         id: "devil tail",

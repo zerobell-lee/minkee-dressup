@@ -67,9 +67,9 @@
 // update this map when new items or categories are added
 $items: (
     "hairs": 15,
-    "weapons": 21,
-    "clothes": 34,
-    "accessoriesA": 31,
+    "weapons": 22,
+    "clothes": 36,
+    "accessoriesA": 36,
     "accessoriesB": 10,
     "balloon": 4,
     "makeup": 28
@@ -248,6 +248,15 @@ $total in $items {
     cursor: pointer;
     width: 100%;
     max-width: 365px;
+    background-color: white;
+}
+
+.activatedListViewItem {
+    cursor: pointer;
+    width: 100%;
+    max-width: 365px;
+    color:hsl(0, 69%, 60%);
+    font-weight: bold;
     background-color: white;
 }
 

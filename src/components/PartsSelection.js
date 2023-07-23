@@ -3,22 +3,23 @@ import { ChromePicker } from 'react-color'
 import './picker.css'
 
 const ListView = (props) => {
-    const { items, selected, onChange} = props
+    const { items, selected, onChange, activatedParts } = props
 
-    const determineSelected = (id) => {
+    const determineSelected = (id, pointingIndex) => {
         if (selected.id === id) return "chosenListViewItem"
+        if (activatedParts.indexOf(pointingIndex) >= 0) return "activatedListViewItem"
         return "listViewItem"
     }
 
     return <div className="listViewContainer">
         {items.map(e => {
-            return <div className={`${determineSelected(e.id)}`} onClick={() => onChange(e.id)}>{e.text}</div>
+            return <div className={`${determineSelected(e.id, e.pointingIndex)}`} onClick={() => onChange(e.id)}>{e.text}</div>
         })}
     </div>
 }
 
-const PartsList = ({ selected, items, onChange }) => {
-    return <ListView items={items} selected={selected} onChange={onChange} />
+const PartsList = ({ selected, items, onChange, activatedParts }) => {
+    return <ListView items={items} selected={selected} onChange={onChange} activatedParts={activatedParts}/>
 }
 
 const CustomColorPicker = (props) => {
@@ -91,7 +92,7 @@ const PartsSelection = (props) => {
     }
 
     return <div style={{ display: "flex" }}>
-        <PartsList selected={selected} items={items} onChange={onItemClicked} />
+        <PartsList selected={selected} items={items} onChange={onItemClicked} activatedParts={activatedParts}/>
         <PartsDetail subParts={selected.subParts ? selected.subParts : []}
             colorMap={colorMap}
             id={selected.id}
