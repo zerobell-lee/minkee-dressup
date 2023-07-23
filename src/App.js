@@ -12,7 +12,8 @@ import PartsSelection from './components/PartsSelection';
 
 const ResultImage = ({encodedImage, closeModal}) => {
   return <div id="resultModal">
-    <img className='resultImg' src={encodedImage} alt="result"/>
+    {encodedImage && <img className='resultImg' src={encodedImage} alt="result"/>}
+    {encodedImage === null && <div className='loader'></div>}
     <input type="button" className="partsButton" value="X" onClick={() => closeModal()}/>
   </div>
 }
@@ -48,18 +49,13 @@ function App() {
   const domElement = useRef(null);
 
   const renderImage = async () => {
-    const dataUrl = await htmlToImage.toPng(domElement.current)
-
-    console.log(dataUrl)
+    setDisplayResultImage(true)
+    let dataUrl
+    for (let i = 0; i < 3; i++) {
+      dataUrl = await htmlToImage.toPng(domElement.current)
+    }
 
     setResultImage(dataUrl)
-    setDisplayResultImage(true)
-    // const link = document.createElement("a");
-    // const timestamp = new Date() / 1
-    // const filename = `minkee-${timestamp}.png`
-    // link.download = filename
-    // link.href = dataUrl;
-    // link.click();
   };
 
   const [dressupState, setDressupState] = useState({
@@ -77,6 +73,7 @@ function App() {
 
   const closeResultImage = () => {
     setDisplayResultImage(false)
+    setResultImage(null)
   }
 
   const [colorMap, setColorMap] = useState({})
