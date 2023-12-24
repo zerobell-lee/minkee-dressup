@@ -364,6 +364,13 @@ const clotheItems = [
         colorable: false,
         pointingIndex: 36
     },
+    {
+        id: "santa clothes",
+        text: "산타옷",
+        category: "clothes",
+        colorable: false,
+        pointingIndex: 37
+    },
 ]
 
 const weaponItems = [
@@ -520,6 +527,13 @@ const weaponItems = [
         category: "weapon",
         colorable: false,
         pointingIndex: 22
+    },
+    {
+        id: "present",
+        text: "선물",
+        category: "weapon",
+        colorable: false,
+        pointingIndex: 23
     }
 ]
 
@@ -755,7 +769,17 @@ const accessoryAitems = [
         id: "shoulder mole right",
         text: "어깨점(우)",
         pointingIndex: 36
-    }
+    },
+    {
+        id: "santa hat",
+        text: "산타모",
+        pointingIndex: 37
+    },
+    {
+        id: "rat",
+        text: "쥐귀",
+        pointingIndex: 38
+    },
 ]
 
 const accessoryBitems = [
@@ -939,6 +963,11 @@ const makeupItems = [
         id: "kratos",
         text: "크레이토스",
         pointingIndex: 28
+    },
+    {
+        id: "tree",
+        text: "트리 스티커",
+        pointingIndex: 29
     }
 ]
 
